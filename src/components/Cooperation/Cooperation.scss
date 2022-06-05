@@ -1,0 +1,31 @@
+.cooperation {
+    background: #F5F5F7;
+    padding: 48px 0 88px 0;
+  .splide__pagination__page {
+    background: #e0e0e0;
+    outline: none !important;
+    margin: 0 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    &.is-active {
+      background: #00d68f;
+      transform: none;
+    }
+  }
+  .splide__pagination{
+      bottom: -32px;
+  }
+  .slideItem{
+      text-align: center;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+    .cooperation {
+        display: none;
+    }
+}

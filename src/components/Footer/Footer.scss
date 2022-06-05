@@ -1,0 +1,128 @@
+.footer {
+  background: #262626;
+
+  .footerTop {
+    padding: 46px 0 88px 0;
+    .right {
+      display: none;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      img {
+        &:first-child {
+          margin-right: 15px;
+        }
+      }
+    }
+    .icons {
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 33px;
+      }
+    }
+    h3 {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 30px;
+    }
+    a {
+      margin-bottom: 16px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #ffffff;
+      opacity: 0.8;
+      display: block;
+      text-decoration: none;
+    }
+    .contactItem {
+      margin-bottom: 30px;
+
+      display: flex;
+      align-items: flex-start;
+      img {
+        margin-right: 20px;
+      }
+      span {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1;
+        color: #ffffff;
+        &.location {
+          color: #2dd06e;
+        }
+      }
+    }
+  }
+  .footerBottom {
+    padding: 24px 0;
+    border-top: 1px solid rgba($color: white, $alpha: 0.1);
+    .termsAndConditions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .left {
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 12px;
+        }
+        span {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 20px;
+          color: #ffffff;
+        }
+      }
+      
+    }
+  }
+  .right {
+    a {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #ffffff;
+      text-decoration: none;
+      &:last-child{
+      margin-left: 40px;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    .footerTop {
+        padding-bottom: 24px;
+      .logo,
+      .icons {
+        justify-content: center;
+      }
+      .right {
+        display: flex;
+       
+      }
+      .row {
+        > div {
+          text-align: center;
+          &:not(:first-child) {
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+    .footerBottom {
+      .right {
+        display: none;
+      }
+    }
+  }
+}
