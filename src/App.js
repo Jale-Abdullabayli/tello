@@ -4,6 +4,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import Products from './pages/Products/Products';
 
 function App() {
   
@@ -11,6 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/products/:categoryName" element={<Products />} />
       </Routes>
     </Router>
   );

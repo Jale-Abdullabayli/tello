@@ -1,8 +1,8 @@
 import React from 'react'
 import './Info.scss';
-import info1 from '../../images/info1.png';
-import info2 from '../../images/info2.png';
-import info3 from '../../images/info3.png';
+import info1 from '../../../images/info1.png';
+import info2 from '../../../images/info2.png';
+import info3 from '../../../images/info3.png';
 
 function Info() {
     return (

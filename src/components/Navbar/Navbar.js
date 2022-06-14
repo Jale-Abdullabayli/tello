@@ -9,7 +9,7 @@ function Navbar({ menuShow }) {
     commerce.categories.list({ limit: 5 }).then((category) => setCategories(category.data));
     return (
         <div className={`${menuShow && 'show'} container navBar` }>
-            {categories.map((el, index) => <Link key={index} to=''>{el.name}</Link>)}
+            {categories.map((el, index) => <Link key={index} to={`/products/${el.name}`}>{el.name}</Link>)}
         </div>
     )
 }

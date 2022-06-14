@@ -1,6 +1,6 @@
 import React from 'react'
 import './Banner.scss';
-import bannerImg from '../../images/bannerImg.png';
+import bannerImg from '../../../images/bannerImg.png';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 

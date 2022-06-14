@@ -2,12 +2,12 @@ import React from 'react'
 import './Cooperation.scss';
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import cooperation1 from '../../images/cooperation1.png';
-import cooperation2 from '../../images/cooperation2.png';
-import cooperation3 from '../../images/cooperation3.png';
-import cooperation4 from '../../images/cooperation4.png';
-import cooperation5 from '../../images/cooperation5.png';
-import cooperation6 from '../../images/cooperation6.png';
+import cooperation1 from '../../../images/cooperation1.png';
+import cooperation2 from '../../../images/cooperation2.png';
+import cooperation3 from '../../../images/cooperation3.png';
+import cooperation4 from '../../../images/cooperation4.png';
+import cooperation5 from '../../../images/cooperation5.png';
+import cooperation6 from '../../../images/cooperation6.png';
 
 function Cooperation() {
 

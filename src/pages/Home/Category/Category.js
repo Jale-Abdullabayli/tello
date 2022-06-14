@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './Category.scss';
-import arrowBlue from '../../images/arrowBlue.png';
+import arrowBlue from '../../../images/arrowBlue.png';
 
 function Category({ category,directionColumn }) {
     return (
