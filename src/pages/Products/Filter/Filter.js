@@ -1,22 +1,35 @@
 import React from 'react'
 import FilterOptions from './FilterOptions/FilterOptions'
+import { useState } from 'react';
 
 function Filter() {
 
-    const filterOptions = [{
+    const options = [{
+        id:1,
         title: "Brend",
-        items: ['Apple', 'Samsung']
+        items: ['Apple', 'Samsung'],
+        show: false
     }, {
+        id:2,
+
         title: "Type",
-        items: ['Apple', 'Samsung']
+        items: ['Apple', 'Samsung'],
+        show: false
     },
     {
+        id:3,
+
         title: "Category",
-        items: ['Apple', 'Samsung']
+        items: ['Apple', 'Samsung'],
+        show: false
     }]
+
+    const [filterOptions, setFilterOptions] = useState(options);
+
+
     return (
         <div className='filter'>
-            {filterOptions.map((el) =><FilterOptions title={el.title} items={el.items}/>)}
+            {filterOptions.map((el) => <FilterOptions filterOptions={filterOptions} show={el.show} id={el.id} setFilterOptions={setFilterOptions} key={el.id} title={el.title} items={el.items} />)}
         </div>
     )
 }

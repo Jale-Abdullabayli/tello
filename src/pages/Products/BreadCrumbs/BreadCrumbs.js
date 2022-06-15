@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import './BreadCrumbs.scss';
 import rightArrow from '../../../images/rightArrow.svg';
@@ -12,12 +12,17 @@ function BreadCrumbs({ category }) {
     }
     useEffect(() => {
         getParent();
-    }, []);
+    }, [category]);
     return (
         <div className='breadCrumbs'>
-            <Link to=''>Ana səhifə</Link>
-            <img src={rightArrow} alt='rightArrow' />
-            <Link to=''>{parent.name}</Link>
+            <Link to='/'>Ana səhifə</Link>
+            {
+                parent &&
+                <>
+                    <img src={rightArrow} alt='rightArrow' />
+                    <Link to=''>{parent.name}</Link>
+                </>
+            }
             <img src={rightArrow} alt='rightArrow' />
             <Link to='' className='active'>{category.name}</Link>
         </div>

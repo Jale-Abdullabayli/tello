@@ -8,19 +8,24 @@ import favoriteIcon from '../../images/favoriteIcon.png';
 import basketIcon from '../../images/basketIcon.png';
 import menuIcon from '../../images/menuIcon.svg';
 import closeIcon from '../../images/closeIcon.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import {toggleMenu} from '../../redux/reducers/menuShowReducer';
+import { Link } from 'react-router-dom';
 
-function Header({ setMenuShow, menuShow }) {
-
+function Header() {
+    const dispatch = useDispatch();
+    const menuShow = useSelector(state => state.menuShow);
     return (
         <div className='header container'>
-            <div className='logo'>
+            <div className="logo">
                 {!menuShow ?
-                    <img onClick={() => setMenuShow(!menuShow)} src={menuIcon} className='menuIcon' alt='menuIcon' /> :
-                    <img onClick={() => setMenuShow(!menuShow)} src={closeIcon} className='closeIcon' alt='closeIcon' />
+                    <img onClick={() => dispatch(toggleMenu())} src={menuIcon} className='menuIcon' alt='menuIcon' /> :
+                    <img onClick={() => dispatch(toggleMenu())} src={closeIcon} className='closeIcon' alt='closeIcon' />
                 }
-
+            <Link to='/'>
                 <img src={logoSymbol} alt='logoSymbol' className='logoSymbol' />
                 <img src={logoName} alt='logoName' />
+            </Link>
             </div>
             <div className="search">
                 <img src={searchIcon} alt='searchIcon' />

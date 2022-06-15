@@ -19,11 +19,9 @@ function Home() {
     const [accessoryCategory, setAccessoryCategory] = useState({});
     const [telephoneCategory, setTelephoneCategory] = useState({});
     const [smartWatchCategory, setSmartWatchCategory] = useState({});
-    const [menuShow, setMenuShow] = useState(false);
 
     const dispatch = useDispatch();
     const {topSellings,news,accessories} = useSelector(state => state);
-
 
 
     async function getAccessoryCategory() {
@@ -51,8 +49,8 @@ function Home() {
     }, []);
     return (
         <div className='home'>
-            <Header menuShow={menuShow} setMenuShow={setMenuShow} />
-            <Navbar menuShow={menuShow} />
+            <Header/>
+            <Navbar borderNone='true'/>
             <Banner />
             <Products title='Ən çox satılan məhsullar' products={topSellings.products} />
             <Products title='Yeni gələn məhsullar' products={news.products} />

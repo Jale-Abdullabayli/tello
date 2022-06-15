@@ -1,23 +1,24 @@
-.products{
+.home {
+  .products {
     margin-top: 33px;
-}
+  }
 
-
-.categories{
+  .categories {
     margin-top: 100px;
-    .row{
-        align-items:stretch;
-        .rightCol{
-         display: flex;
-         flex-direction: column;
-         gap: 16px;
-        }
+    .row {
+      align-items: stretch;
+      .rightCol {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
     }
-}
+  }
 
-.advertise{
+  .advertise {
     margin-top: 64px;
-    img{
-        width: 100%;
+    img {
+      width: 100%;
     }
+  }
 }

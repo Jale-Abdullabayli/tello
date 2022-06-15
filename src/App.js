@@ -4,7 +4,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import Products from './pages/Products/Products';
+import Products from './pages/Products/ProductsByCategory';
 
 function App() {
   

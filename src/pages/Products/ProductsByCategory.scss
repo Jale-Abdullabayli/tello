@@ -1,0 +1,20 @@
+.productsByCategory {
+    .products{
+        margin-bottom: 144px;
+    }
+  .breadCrumbs {
+    margin-bottom: 35px;
+  }
+  .rightSideTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 42px;
+    h3 {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: #333333;
+    }
+  }
+}
