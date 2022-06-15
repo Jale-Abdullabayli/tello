@@ -41,7 +41,7 @@ export const getAccessoriesAsync = createAsyncThunk(
     async () => {
         try {
             const response = await commerce.products.list({
-                category_slug:  ['aksesuarlar'],
+                category_slug: ['aksesuarlar'],
             })
             return response.data;
 
@@ -58,10 +58,23 @@ export const getProductsByCategoryAsync = createAsyncThunk(
     async (category) => {
         try {
             const response = await commerce.products.list({
-                category_slug:  [`${category}`],
+                category_slug: [category],
             })
             return response.data;
 
+        }
+        catch (err) {
+            return err.message
+        }
+    }
+)
+
+export const getProductByIdAsync = createAsyncThunk(
+    'productById/getProductByIdAsync',
+    async (productId) => {
+        try {
+            const response = await commerce.products.retrieve(productId);
+            return response;
         }
         catch (err) {
             return err.message

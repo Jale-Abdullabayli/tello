@@ -5,6 +5,7 @@ import {
   Routes
 } from "react-router-dom";
 import Products from './pages/Products/ProductsByCategory';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products/:categoryName" element={<Products />} />
+        <Route path="/product-detail/:productId" element={<ProductDetail />} />
       </Routes>
     </Router>
   );

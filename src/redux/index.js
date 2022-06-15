@@ -4,6 +4,7 @@ import newsReducer from './reducers/newsReducer';
 import accessoriesReducer from './reducers/accessoriesReducer';
 import productsByCategoryReducer from './reducers/productsByCategoryReducer';
 import menuShowReducer from './reducers/menuShowReducer';
+import productByIdReducer from './reducers/productByIdReducer';
 
 export const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
         news: newsReducer,
         accessories: accessoriesReducer,
         productsByCategory: productsByCategoryReducer,
-        menuShow: menuShowReducer
+        menuShow: menuShowReducer,
+        productById:productByIdReducer
     },
 })
