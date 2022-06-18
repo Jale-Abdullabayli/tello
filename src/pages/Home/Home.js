@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Home.scss';
+
 import Header from '../../components/Header/Header'
 import Navbar from '../../components/Navbar/Navbar'
 import Banner from './Banner/Banner'
@@ -46,14 +47,18 @@ function Home() {
         getAccessoryCategory();
         getTelephoneCategory();
         getSmartWatchCategory();
+        window.scrollTo(0, 0)
     }, []);
     return (
         <div className='home'>
             <Header/>
             <Navbar borderNone='true'/>
             <Banner />
-            <Products title='Ən çox satılan məhsullar' products={topSellings.products} />
-            <Products title='Yeni gələn məhsullar' products={news.products} />
+           
+              <Products loading={topSellings.loading} title='Ən çox satılan məhsullar' products={topSellings.products} />
+           
+         
+            <Products loading={news.loading} title='Yeni gələn məhsullar' products={news.products} />
             <div className="advertise">
                 <div className="container">
                     <div className="row">
@@ -70,7 +75,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <Products title='Yeni gələn aksessuarlar' products={accessories.products} />
+            <Products loading={accessories.loading} title='Yeni gələn aksessuarlar' products={accessories.products} />
             <div className="categories">
                 <div className="container">
                     <div className="row">

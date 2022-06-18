@@ -9,32 +9,43 @@ import { getProductsByCategoryAsync } from '../../redux/actions/product';
 import { useDispatch, useSelector } from 'react-redux';
 import Products from '../../components/Products/Products';
 import Header from '../../components/Header/Header'
-import Navbar from '../../components/Navbar/Navbar'
+import Navbar from '../../components/Navbar/Navbar';
+import Pagination from './Pagination/Pagination';
+import { useNavigate } from 'react-router-dom';
 
 
 function ProductsByCategory() {
     const dispatch = useDispatch();
     const productsByCategory = useSelector(state => state.productsByCategory);
+    const navigate = useNavigate();
 
-    let { categoryName } = useParams();
+    let { categoryName, page } = useParams();
+    const [countOfProducts, setCountOfProducts] = useState(0);
+
     const [category, setCategory] = useState('');
+
     async function getCategory() {
         commerce.categories.retrieve(categoryName, { type: 'slug' })
-            .then((category) => {
-                setCategory(category);
-                dispatch(getProductsByCategoryAsync(category.slug));
+            .then((categoryType) => {
+                setCategory(categoryType);
+                setCountOfProducts(categoryType.products);
+                dispatch(getProductsByCategoryAsync({ category: categoryName, pageNumber: page }));
             });
     }
 
-
+    function changePage(pageNumber) {
+        navigate(`/products/${categoryName}/${pageNumber}`);
+    }
+    
     useEffect(() => {
         getCategory();
-    }, [categoryName]);
+        window.scrollTo(0, 0);
+    }, [categoryName, page]);
     return (
         <div className='productsByCategory'>
             <Header />
             <Navbar />
-            <div className='products'>
+            <div className='productList'>
                 <div className="container">
                     <BreadCrumbs category={category} />
                     <div className="row">
@@ -48,6 +59,8 @@ function ProductsByCategory() {
                                         <h3>{category.products} məhsul tapıldı</h3>
                                     </div>
                                     <Products col='col-md-4' all='true' products={productsByCategory.products} />
+                                    <Pagination changePage={changePage} amount={Math.ceil(countOfProducts / 6)} />
+
                                 </>}
                         </div>
                     </div>

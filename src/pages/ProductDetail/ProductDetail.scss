@@ -4,10 +4,39 @@
 
     }
     .leftCol{
-        .imgContainer{
-           display: flex;
-           justify-content: center;
+        .slider{
+
+            padding:0 25px 100px;
+            .slick-list{
+                img{
+                    width: 80%;
+                    margin: auto;
+                }
+            }
+            img{
+                width: 100%;
+            }
+            .slick-prev:before, .slick-next:before{
+                color:#2E3A59;
+                font-size: 30px;
+                font-weight: bold;
+                opacity: 1;
+            }
+            .slick-next:before{
+                content:'>'
+            }
+            .slick-prev:before{
+                content:'<'
+            }
+            .slick-dots{
+                bottom: -100px;
+                li{
+                        width: 100px;
+                    height: 100px;
+                }
+            }
         }
+        
     }
   .rightCol {
     .name {

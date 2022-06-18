@@ -23,10 +23,8 @@ export const getNewsAsync = createAsyncThunk(
     'news/getNewsAsync',
     async () => {
         try {
-            const response = await commerce.products.list({
-                category_slug: ['yeni-m-hsullar', 'telefonlar'],
-            })
-            return response.data;
+            const response = await commerce.products.list()
+            return response.data.slice(-4);
 
         }
         catch (err) {
@@ -55,10 +53,12 @@ export const getAccessoriesAsync = createAsyncThunk(
 
 export const getProductsByCategoryAsync = createAsyncThunk(
     'productsByCategory/getProductsByCategoryAsync',
-    async (category) => {
+    async (param) => {
         try {
             const response = await commerce.products.list({
-                category_slug: [category],
+                category_slug: [param.category],
+                limit:6,
+                page:param.pageNumber 
             })
             return response.data;
 
