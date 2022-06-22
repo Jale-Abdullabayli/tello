@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './BasketProduct.scss';
-import aznSymbol from '../../images/aznSymbol.svg';
-import deleteIcon from '../../images/deleteIcon.svg';
+import aznSymbol from '../../../images/aznSymbol.svg';
+import deleteIcon from '../../../images/deleteIcon.svg';
 
 function BasketProduct({ product }) {
   let [basketCount, setbasketCount] = useState(1);
