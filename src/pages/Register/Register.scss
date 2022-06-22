@@ -1,0 +1,31 @@
+.register {
+  .termsAndConditions {
+    display: flex;
+    align-items: center;
+    .checkBox {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    .agree {
+      display: flex;
+      align-items: center;
+      a {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #2d9cdb;
+        text-decoration: none;
+        margin-right: 4px;
+      }
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #4f4f4f;
+      }
+    }
+  }
+}
