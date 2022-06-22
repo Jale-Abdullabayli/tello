@@ -1,0 +1,87 @@
+.basket {
+  .basketDetail {
+    background: #e5e5e5;
+    padding: 50px 0 170px;
+    .basketCountAll {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+      color: #4f4f4f;
+      margin-bottom: 100px;
+    }
+    .basketProduct {
+      margin-bottom: 32px;
+    }
+    .total {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 32px 24px;
+      h3 {
+        font-weight: 500;
+        margin-bottom: 16px;
+        font-size: 20px;
+        line-height: 28px;
+        color: #1d2123;
+      }
+      .properties {
+        .property {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          .key {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #333333;
+          }
+          .value {
+            display: flex;
+            align-items: center;
+            span {
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 24px;
+              color: #1d2123;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      .line {
+        background: #828282;
+        height: 1px;
+        margin-bottom: 16px;
+      }
+      .sum {
+        .property {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          .key {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #1d2123;
+          }
+          .value {
+            display: flex;
+            align-items: center;
+            span {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                text-align: right;
+                color: #DB2C66;
+              margin-right: 10px;
+            }
+            img{
+            filter: invert(29%) sepia(85%) saturate(5029%) hue-rotate(327deg) brightness(93%) contrast(84%);
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

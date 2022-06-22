@@ -59,8 +59,7 @@ function ProductsByCategory() {
                                         <h3>{category.products} məhsul tapıldı</h3>
                                     </div>
                                     <Products col='col-md-4' all='true' products={productsByCategory.products} />
-                                    <Pagination changePage={changePage} amount={Math.ceil(countOfProducts / 6)} />
-
+                                    {countOfProducts>6 &&  <Pagination changePage={changePage} amount={Math.ceil(countOfProducts / 6)} />}
                                 </>}
                         </div>
                     </div>

@@ -9,7 +9,7 @@ import basketIcon from '../../images/basketIcon.png';
 import menuIcon from '../../images/menuIcon.svg';
 import closeIcon from '../../images/closeIcon.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import {toggleMenu} from '../../redux/reducers/menuShowReducer';
+import { toggleMenu } from '../../redux/reducers/menuShowReducer';
 import { Link } from 'react-router-dom';
 
 function Header() {
@@ -22,10 +22,10 @@ function Header() {
                     <img onClick={() => dispatch(toggleMenu())} src={menuIcon} className='menuIcon' alt='menuIcon' /> :
                     <img onClick={() => dispatch(toggleMenu())} src={closeIcon} className='closeIcon' alt='closeIcon' />
                 }
-            <Link to='/'>
-                <img src={logoSymbol} alt='logoSymbol' className='logoSymbol' />
-                <img src={logoName} alt='logoName' />
-            </Link>
+                <Link to='/'>
+                    <img src={logoSymbol} alt='logoSymbol' className='logoSymbol' />
+                    <img src={logoName} alt='logoName' />
+                </Link>
             </div>
             <div className="search">
                 <img src={searchIcon} alt='searchIcon' />
@@ -44,7 +44,9 @@ function Header() {
             <div className="icons">
                 <img src={userIcon} alt='userIcon' />
                 <img src={favoriteIcon} alt='favoriteIcon' />
-                <img src={basketIcon} alt='basketIcon' />
+                <Link to='/basket'>
+                    <img src={basketIcon} alt='basketIcon' />
+                </Link>
                 <div className="basketCount">0</div>
             </div>
         </div>

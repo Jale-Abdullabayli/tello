@@ -20,11 +20,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 function ProductDetail() {
 
-    let [basketCount, setbasketCount] = useState(0);
+    let [basketCount, setbasketCount] = useState(1);
     let { productId } = useParams();
     const dispatch = useDispatch();
     const productDetail = useSelector(state => {
-        console.log(state.productById.product)
         return state.productById;
     });
     const product = productDetail.product;
@@ -36,7 +35,7 @@ function ProductDetail() {
 
   
     function decrementBasketCount() {
-        if (basketCount !== 0) setbasketCount(basketCount--);
+        if (basketCount !== 1) setbasketCount(basketCount--);
     }
 
     function incrementBasketCount() {
