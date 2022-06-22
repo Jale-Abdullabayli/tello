@@ -73,8 +73,6 @@ function Basket() {
                     }
                 </div>
             </div>
-
-
             <Footer />
         </div>
     )

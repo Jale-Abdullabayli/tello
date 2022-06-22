@@ -8,6 +8,7 @@ import Products from './pages/Products/ProductsByCategory';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Basket from './pages/Basket/Basket';
 import './App.scss';
+import Login from './pages/Login/Login';
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/products/:categoryName/:page" element={<Products />} />
         <Route path="/product-detail/:productId" element={<ProductDetail />} />
       </Routes>

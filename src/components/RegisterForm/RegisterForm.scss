@@ -1,0 +1,65 @@
+.registerForm {
+  .title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color: #4f4f4f;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .registerWith {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    > div {
+      display: flex;
+      align-items: center;
+    }
+    span {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: #4f4f4f;
+    }
+    .imgContainer {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 8px;
+    }
+    .facebook {
+      .imgContainer {
+        background: #4267b2;
+      }
+    }
+    .google {
+      .imgContainer {
+        background: #db4437;
+      }
+    }
+  }
+  .or {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #bdbdbd;
+    text-align: center;
+    margin: 24px 0;
+  }
+  button {
+    background: #2dd06e;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+    width: 100%;
+    border:none;
+    outline: none;
+    padding: 16px 0;
+    margin-top: 50px;
+  }
+}

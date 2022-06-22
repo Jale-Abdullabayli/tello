@@ -42,7 +42,10 @@ function Header() {
                 </div>
             </div>
             <div className="icons">
+                <Link to='login'>
                 <img src={userIcon} alt='userIcon' />
+
+                </Link>
                 <img src={favoriteIcon} alt='favoriteIcon' />
                 <Link to='/basket'>
                     <img src={basketIcon} alt='basketIcon' />
