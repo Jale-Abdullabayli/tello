@@ -13,6 +13,7 @@ function BasketProduct({ product }) {
   const productId = product.id;
   function decrementBasketCount() {
     if(basketCount>1)  setbasketCount(basketCount-1);
+    else  dispatch(removeFromCartAsync(product.id));
   }
 
   function incrementBasketCount() {
