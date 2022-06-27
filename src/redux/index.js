@@ -5,6 +5,7 @@ import accessoriesReducer from './reducers/accessoriesReducer';
 import productsByCategoryReducer from './reducers/productsByCategoryReducer';
 import menuShowReducer from './reducers/menuShowReducer';
 import productByIdReducer from './reducers/productByIdReducer';
+import fetchCartReducer from './reducers/fetchCartReducer';
 
 export const store = configureStore({
     reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
         accessories: accessoriesReducer,
         productsByCategory: productsByCategoryReducer,
         menuShow: menuShowReducer,
-        productById:productByIdReducer
+        productById:productByIdReducer,
+        cart: fetchCartReducer
     },
 })

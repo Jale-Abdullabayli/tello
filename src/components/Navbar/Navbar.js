@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 function Navbar({ borderNone }) {
     const menuShow = useSelector(state => state.menuShow);
-
     const [categories, setCategories] = useState([]);
     useEffect(() => {
     commerce.categories.list({limit:5}).then((category) => setCategories(category.data));

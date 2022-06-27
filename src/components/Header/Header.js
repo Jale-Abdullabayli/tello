@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './Header.scss';
 import logoName from '../../images/logoName.png';
 import logoSymbol from '../../images/logoSymbol.png';
@@ -11,10 +11,18 @@ import closeIcon from '../../images/closeIcon.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../../redux/reducers/menuShowReducer';
 import { Link } from 'react-router-dom';
+import { getCartAsync } from '../../redux/actions/cart';
 
 function Header() {
     const dispatch = useDispatch();
     const menuShow = useSelector(state => state.menuShow);
+    const cart = useSelector(state => state.cart);
+const basketCount=cart?.cart?.total_items
+
+useEffect(() => {
+    dispatch(getCartAsync());
+    window.scrollTo(0, 0);
+}, []);
     return (
         <div className='header container'>
             <div className="logo">
@@ -52,7 +60,7 @@ function Header() {
                 <Link to='/basket'>
                     <img src={basketIcon} alt='basketIcon' />
                 </Link>
-                <div className="basketCount">0</div>
+                <div className="basketCount">{basketCount}</div>
             </div>
         </div>
     )
