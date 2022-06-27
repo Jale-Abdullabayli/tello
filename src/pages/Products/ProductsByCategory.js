@@ -12,6 +12,8 @@ import Header from '../../components/Header/Header'
 import Navbar from '../../components/Navbar/Navbar';
 import Pagination from './Pagination/Pagination';
 import { useNavigate } from 'react-router-dom';
+import MoonLoader from "react-spinners/MoonLoader";
+
 
 
 function ProductsByCategory() {
@@ -53,7 +55,9 @@ function ProductsByCategory() {
                             <Filter />
                         </div>
                         <div className="col-md-9">
-                            {productsByCategory.loading ? 'Loading...' :
+                            {productsByCategory.loading ? <div className="spinner">
+                <MoonLoader color={'#2DD06E'} loading={productsByCategory.loading} size={100} />
+                </div> :
                                 <>
                                     <div className="rightSideTitle">
                                         <h3>{category.products} məhsul tapıldı</h3>

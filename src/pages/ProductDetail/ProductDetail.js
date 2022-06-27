@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductByIdAsync } from '../../redux/actions/product';
-import {addToCartAsync} from '../../redux/actions/cart';
+import { addToCartAsync } from '../../redux/actions/cart';
 import starFull from '../../images/starFull.png'
 import star from '../../images/star.png'
 import aznSymbol from '../../images/aznSymbol.svg';
@@ -15,6 +15,7 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MoonLoader from "react-spinners/MoonLoader";
 
 
 
@@ -30,38 +31,38 @@ function ProductDetail() {
         return state.productById;
     });
     const product = productDetail.product;
-    const sizeVariantId=  product?.variant_groups?.[1]?.options[activeSizeIndex]?.id;
-    const colorVariantId=  product?.variant_groups?.[0]?.options[activeColorIndex]?.id;
-    const sizeGroupId= product?.variant_groups?.[1]?.id;
-    const colorGroupId= product?.variant_groups?.[0]?.id;
+    const sizeVariantId = product?.variant_groups?.[1]?.options[activeSizeIndex]?.id;
+    const colorVariantId = product?.variant_groups?.[0]?.options[activeColorIndex]?.id;
+    const sizeGroupId = product?.variant_groups?.[1]?.id;
+    const colorGroupId = product?.variant_groups?.[0]?.id;
     console.log(product)
 
     const sliderImages = product?.variant_groups?.[0]?.options[activeColorIndex]?.assets.map(id => product.assets.find(el => el.id === id));
-    const productPrice= Number(product?.price?.raw)+Number(product?.variant_groups?.[1]?.options[activeSizeIndex]?.price?.raw);
+    const productPrice = Number(product?.price?.raw) + Number(product?.variant_groups?.[1]?.options[activeSizeIndex]?.price?.raw);
 
     useEffect(() => {
         dispatch(getProductByIdAsync(productId));
         window.scrollTo(0, 0);
     }, []);
 
-    function addToCart(productId){
+    function addToCart(productId) {
         alert('product added to cart');
-        dispatch(addToCartAsync({productId,basketCount,sizeGroupId,sizeVariantId,colorGroupId,colorVariantId}));
+        dispatch(addToCartAsync({ productId, basketCount, sizeGroupId, sizeVariantId, colorGroupId, colorVariantId }));
     }
 
     function decrementBasketCount() {
-        if (basketCount !== 1) setbasketCount(basketCount-1);
+        if (basketCount !== 1) setbasketCount(basketCount - 1);
     }
 
     function incrementBasketCount() {
-        setbasketCount(basketCount+1);
+        setbasketCount(basketCount + 1);
     }
 
     const settings = {
         customPaging: function (i) {
             return (
                 <a>
-                    <img src={sliderImages[i].url} alt='sliderImg'/>
+                    <img src={sliderImages[i].url} alt='sliderImg' />
                 </a>
             );
         },
@@ -79,14 +80,16 @@ function ProductDetail() {
             <Header />
             <Navbar />
             <div className="container">
-                {productDetail.loading ? 'Loading...' :
+                {productDetail.loading ? <div className="spinner">
+                <MoonLoader color={'#2DD06E'} loading={productDetail.loading} size={100} />
+                </div> :
 
                     <div className="row productDetailRow">
                         <div className="col-md-6 leftCol">
                             <div className="slider">
                                 <Slider {...settings}>
                                     {
-                                        sliderImages && sliderImages.map((el,index) => (
+                                        sliderImages && sliderImages.map((el, index) => (
                                             <div key={index}>
                                                 <img src={el.url} alt='productImg' />
                                             </div>
@@ -119,7 +122,7 @@ function ProductDetail() {
                                 <div className="basketCount">{basketCount}</div>
                                 <span className='increment' onClick={incrementBasketCount}>+</span>
                             </div>
-                            <button onClick={()=>addToCart(product.id)} className="addBasketBtn">
+                            <button onClick={() => addToCart(product.id)} className="addBasketBtn">
                                 <img src={basket} alt='addBasket' />
                                 Səbətə at
                             </button>
