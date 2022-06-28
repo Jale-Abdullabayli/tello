@@ -38,7 +38,7 @@ function ProductsByCategory() {
     function changePage(pageNumber) {
         navigate(`/products/${categoryName}/${pageNumber}`);
     }
-    
+
     useEffect(() => {
         getCategory();
         window.scrollTo(0, 0);
@@ -56,14 +56,14 @@ function ProductsByCategory() {
                         </div>
                         <div className="col-md-9">
                             {productsByCategory.loading ? <div className="spinner">
-                <MoonLoader color={'#2DD06E'} loading={productsByCategory.loading} size={100} />
-                </div> :
+                                <MoonLoader color={'#2DD06E'} loading={productsByCategory.loading} size={100} />
+                            </div> :
                                 <>
                                     <div className="rightSideTitle">
                                         <h3>{category.products} məhsul tapıldı</h3>
                                     </div>
                                     <Products col='col-md-4' all='true' products={productsByCategory.products} />
-                                    {countOfProducts>6 &&  <Pagination changePage={changePage} amount={Math.ceil(countOfProducts / 6)} />}
+                                    {countOfProducts > 6 && <Pagination changePage={changePage} amount={Math.ceil(countOfProducts / 6)} />}
                                 </>}
                         </div>
                     </div>

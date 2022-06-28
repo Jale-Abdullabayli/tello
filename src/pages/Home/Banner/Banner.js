@@ -18,7 +18,7 @@ function Banner() {
                 perPage: 1,
                 perMove: 1,
                 type: 'loop',
-                // autoplay: true,
+                autoplay: true,
                 arrows: false
             }} >
                     <SplideSlide>

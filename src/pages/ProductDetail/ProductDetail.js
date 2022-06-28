@@ -35,8 +35,6 @@ function ProductDetail() {
     const colorVariantId = product?.variant_groups?.[0]?.options[activeColorIndex]?.id;
     const sizeGroupId = product?.variant_groups?.[1]?.id;
     const colorGroupId = product?.variant_groups?.[0]?.id;
-    console.log(product)
-
     const sliderImages = product?.variant_groups?.[0]?.options[activeColorIndex]?.assets.map(id => product.assets.find(el => el.id === id));
     const productPrice = Number(product?.price?.raw) + Number(product?.variant_groups?.[1]?.options[activeSizeIndex]?.price?.raw);
 
