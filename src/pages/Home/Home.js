@@ -55,7 +55,7 @@ function Home() {
             <Navbar borderNone='true'/>
             <Banner />
            
-              <Products loading={topSellings.loading} title='Ən çox satılan məhsullar' products={topSellings.products} />
+              <Products loading={topSellings.loading} permalink='ox-sat-lanlar' title='Ən çox satılan məhsullar' products={topSellings.products} />
            
          
             <Products loading={news.loading} title='Yeni gələn məhsullar' products={news.products} />
@@ -75,7 +75,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <Products loading={accessories.loading} title='Yeni gələn aksessuarlar' products={accessories.products} />
+            <Products loading={accessories.loading} permalink='aksesuarlar' title='Yeni gələn aksessuarlar' products={accessories.products} />
             <div className="categories">
                 <div className="container">
                     <div className="row">

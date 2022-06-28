@@ -6,13 +6,13 @@ import Product from '../Product/Product';
 import ProductSkeleton from '../../components/ProductSkeleton/ProductSkeleton';
 
 
-function Products({ title, products, col,all,loading }) {
+function Products({ title, products, col,all,loading,permalink }) {
     return (
         <div className='products'>
             <div className={`${!all && 'container'}`}>
                 {!all && <div className="title">
                     <h5>{title}</h5>
-                    <Link to=''><span>Hamısına bax</span> <img src={arrow} alt="all" /></Link>
+                    <Link to={`/products/${permalink}/1`}><span>Hamısına bax</span> <img src={arrow} alt="all" /></Link>
                 </div>}
                 
                 {

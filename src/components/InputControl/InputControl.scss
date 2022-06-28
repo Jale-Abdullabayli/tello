@@ -15,7 +15,7 @@
       transform: translateY(-50%);
     }
 
-    input {
+    input,textarea {
       background: #f2f2f2;
       border-radius: 8px;
       border: none;
@@ -26,5 +26,6 @@
         padding-right: 50px;
       }
     }
+
   }
 }

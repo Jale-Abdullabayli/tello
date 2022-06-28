@@ -1,0 +1,76 @@
+.paymentOptions {
+  border-top: 1px solid #828282;
+  .optionTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 32px 0;
+    .titleRight {
+      display: flex;
+      align-items: center;
+      .edit {
+        cursor: pointer;
+        margin-right: 30px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #2d9cdb;
+      }
+    }
+    h3 {
+    cursor: pointer;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+      color: #1d2123;
+    }
+    .imgContainer {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.disable {
+        border: 1px solid #e0e0e0;
+        img {
+          filter: invert(49%) sepia(25%) saturate(11%) hue-rotate(35deg)
+            brightness(99%) contrast(97%);
+        }
+      }
+      &.done {
+        background: #2dd06e;
+        border: 1px solid #2dd06e;
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+      &.doing {
+        border: 1px solid #2dd06e;
+      }
+    }
+  }
+  .optionForm {
+    button {
+      padding: 16px 47px;
+      background: #2dd06e;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+      color: #ffffff;
+      border: none;
+      outline: none;
+      margin-top: 24px;
+    }
+  }
+  .optionFull {
+    h6 {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #1d2123;
+      margin: 4px 0;
+    }
+  }
+}

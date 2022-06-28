@@ -5,9 +5,9 @@ import Navbar from '../../components/Navbar/Navbar'
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartAsync } from '../../redux/actions/cart';
 import BasketProduct from './BasketProduct/BasketProduct';
-import aznSymbol from '../../images/aznSymbol.svg';
 import Footer from '../../components/Footer/Footer';
 import EmptyBasket from './EmptyBasket/EmptyBasket';
+import TotalPrice from '../../components/TotalPrice/TotalPrice';
 
 
 function Basket() {
@@ -42,34 +42,7 @@ function Basket() {
                                     ))}
                                 </div>
                                 <div className="col-md-4">
-                                    <div className="total">
-                                        <h3>Ümumi</h3>
-                                        <div className="properties">
-                                            <div className="property">
-                                                <div className="key">Məbləğ </div>
-                                                <div className="value"><span>{cart?.cart?.subtotal?.formatted}</span> <img src={aznSymbol} alt="azn" /></div>
-                                            </div>
-                                            <div className="property">
-                                                <div className="key">Çatdırılma</div>
-                                                <div className="value"><span>0.00</span> <img src={aznSymbol} alt="azn" /></div>
-                                            </div>
-                                            <div className="property">
-                                                <div className="key">Hədiyyə paketi</div>
-                                                <div className="value"><span>0.00</span> <img src={aznSymbol} alt="azn" /></div>
-                                            </div>
-                                            <div className="property">
-                                                <div className="key">Promo kod</div>
-                                                <div className="value"><span>0.00</span> <img src={aznSymbol} alt="azn" /></div>
-                                            </div>
-                                        </div>
-                                        <div className="line"></div>
-                                        <div className="sum">
-                                            <div className="property">
-                                                <div className="key">Cəmi</div>
-                                                <div className="value"><span>{cart?.cart?.subtotal?.formatted}</span> <img src={aznSymbol} alt="azn" /></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   <TotalPrice total={cart?.cart?.subtotal?.formatted}/>
                                 </div>
                             </div>
                     }

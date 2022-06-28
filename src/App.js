@@ -10,6 +10,7 @@ import Basket from './pages/Basket/Basket';
 import './App.scss';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import Payment from './pages/Payment/Payment';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         <Route path="/basket" element={<Basket />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/products/:categoryName/:page" element={<Products />} />
         <Route path="/product-detail/:productId" element={<ProductDetail />} />
       </Routes>

@@ -161,7 +161,7 @@ function Header() {
                     <img src={userIcon} alt='userIcon' />
 
                 </Link>
-                <Link to='/register'>
+                <Link to='/payment'>
                     <img src={favoriteIcon} alt='favoriteIcon' />
                 </Link>
                 <Link to='/basket'>
