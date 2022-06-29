@@ -56,7 +56,7 @@ function Payment() {
                                         <img src={card} alt="withCard" />
                                         <h4>Onlayn kart ilə ödəmə </h4>
                                     </div>
-                                    <div className="cash">
+                                    <div className="cash active">
                                         <img src={cash} alt="cash" />
                                         <h4>Qapıda nağd ödəmə</h4>
                                     </div>

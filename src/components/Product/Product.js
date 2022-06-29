@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './Product.scss'
-import aznSymbol from '../../images/aznSymbol.svg'
+import aznSymbol from '../../images/aznSymbol.svg';
 import { Link } from 'react-router-dom';
 
 

@@ -11,9 +11,12 @@ import './App.scss';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Payment from './pages/Payment/Payment';
+import Orders from './pages/Orders/Orders';
+import OrderList from './pages/Orders/OrderList/OrderList';
+import OrderDetail from './pages/Orders/OrderDetail/OrderDetail';
 
 function App() {
-  
+
   return (
     <Router>
       <Routes>
@@ -22,6 +25,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/orders" element={<Orders />} >
+          <Route path="order-detail" element={<OrderDetail />} />
+          <Route path="order-list" element={<OrderList />} />
+        </Route>
         <Route path="/products/:categoryName/:page" element={<Products />} />
         <Route path="/product-detail/:productId" element={<ProductDetail />} />
       </Routes>
