@@ -28,5 +28,4 @@ export const productsByCategorySlice = createSlice({
     }
 })
 
-
 export default productsByCategorySlice.reducer

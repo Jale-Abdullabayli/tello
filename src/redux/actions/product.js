@@ -1,6 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { commerce } from '../../commerce';
 
+
+export const getAllProductsAsync = createAsyncThunk(
+    'allProducts/getAllProductsAsync',
+    async () => {
+        try {
+            const response = await commerce.products.list();
+            return response.data;
+
+        }
+        catch (err) {
+            return err.message
+        }
+    }
+)
+
 export const getTopSellingsAsync = createAsyncThunk(
     'topSellings/getTopSellingsAsync',
     async () => {
@@ -54,9 +69,7 @@ export const getProductsByCategoryAsync = createAsyncThunk(
     async (param) => {
         try {
             const response = await commerce.products.list({
-                category_slug: [param.category],
-                limit:6,
-                page:param.pageNumber 
+                category_slug: [param.category]
             })
             return response.data;
 
@@ -66,6 +79,7 @@ export const getProductsByCategoryAsync = createAsyncThunk(
         }
     }
 )
+
 
 export const getProductByIdAsync = createAsyncThunk(
     'productById/getProductByIdAsync',

@@ -1,3 +1,21 @@
-.orderDetail{
-    
+.orderDetail {
+  .back {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    img {
+      margin-right: 12px;
+    }
+    span {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+      color: #4f4f4f;
+    }
+  }
+  .orderDetailMain{
+    background: #FFFFFF;
+border-radius: 8px;
+padding: 32px;
+  }
 }

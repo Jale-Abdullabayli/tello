@@ -32,3 +32,13 @@
           }
         }
 }
+
+
+@media (max-width: 768px) {
+  .registerImages{
+    margin-top: 26px;
+    .imgContainer{
+      display: none;
+    }
+  }
+}

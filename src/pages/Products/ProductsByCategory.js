@@ -19,19 +19,22 @@ import MoonLoader from "react-spinners/MoonLoader";
 function ProductsByCategory() {
     const dispatch = useDispatch();
     const productsByCategory = useSelector(state => state.productsByCategory);
+    const filter = useSelector(state => state.filter);
     const navigate = useNavigate();
 
+    console.log(productsByCategory)
     let { categoryName, page } = useParams();
-    const [countOfProducts, setCountOfProducts] = useState(0);
+    const [countOfProducts, setCountOfProducts] = useState(customFilter().length);
 
     const [category, setCategory] = useState('');
+
 
     async function getCategory() {
         commerce.categories.retrieve(categoryName, { type: 'slug' })
             .then((categoryType) => {
                 setCategory(categoryType);
                 setCountOfProducts(categoryType.products);
-                dispatch(getProductsByCategoryAsync({ category: categoryName, pageNumber: page }));
+                dispatch(getProductsByCategoryAsync({ category: categoryName }));
             });
     }
 
@@ -39,6 +42,30 @@ function ProductsByCategory() {
         navigate(`/products/${categoryName}/${pageNumber}`);
     }
 
+
+    function customFilter() {
+        return productsByCategory.products.filter(product => {
+            let filter = false;
+            product.variant_groups[0].options.forEach(option => {
+                filter.color.map(color => {
+                    if (option.name === color) {
+                        filter = true;
+                    }
+                })
+            })
+
+            product.variant_groups[1].options.forEach(option => {
+                filter.size.map(color => {
+                    if (option.name === color) {
+                        filter = true;
+                    }
+                })
+            })
+            if (filter) return true;
+        })
+    }
+
+    console.log(customFilter())
     useEffect(() => {
         getCategory();
         window.scrollTo(0, 0);
@@ -62,7 +89,7 @@ function ProductsByCategory() {
                                     <div className="rightSideTitle">
                                         <h3>{category.products} məhsul tapıldı</h3>
                                     </div>
-                                    <Products col='col-md-4' all='true' products={productsByCategory.products} />
+                                    <Products col='col-md-4' all='true' products={customFilter().slice((Number(page) - 1) * 6, 6 * Number(page))} />
                                     {countOfProducts > 6 && <Pagination changePage={changePage} amount={Math.ceil(countOfProducts / 6)} />}
                                 </>}
                         </div>

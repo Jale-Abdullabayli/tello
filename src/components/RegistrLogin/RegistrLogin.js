@@ -19,7 +19,7 @@ function RegistrLogin({children,title,imgText,linkText}) {
                                {children}
                             </RegisterForm>
                         </div>
-                        <div className="col-md-6 offset-2">
+                        <div className="col-md-6 offset-md-2">
                             <RegisterImages title={imgText} link={linkText} />
                         </div>
                     </div>

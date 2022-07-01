@@ -25,14 +25,40 @@ export const cartSlice = createSlice({
             state.loading = false;
             state.cart = payload;
         },
+        [addToCartAsync.pending]: (state, { payload }) => {
+            state.loading = true;
+        },
+        [addToCartAsync.rejected]: (state, { payload }) => {
+            state.loading = false;
+            state.error = payload;
+        },
         [addToCartAsync.fulfilled]: (state, { payload }) => {
+            state.loading = false;
             state.cart = payload;
+        },
+        [removeFromCartAsync.pending]: (state, { payload }) => {
+            state.loading = true;
+        },
+        [removeFromCartAsync.rejected]: (state, { payload }) => {
+            state.loading = false;
+            state.error = payload;
         },
         [removeFromCartAsync.fulfilled]: (state, { payload }) => {
             state.cart = payload;
+            state.loading = false;
         },
+        [updateCartAsync.pending]: (state, { payload }) => {
+            state.loading = true;
+        }
+        ,
+        [updateCartAsync.rejected]: (state, { payload }) => {
+            state.loading = false;
+            state.error = payload;
+        }
+        ,
         [updateCartAsync.fulfilled]: (state, { payload }) => {
             state.cart = payload;
+            state.loading = false;
         }
     }
 })

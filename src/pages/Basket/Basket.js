@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './Basket.scss';
 import Header from '../../components/Header/Header'
 import Navbar from '../../components/Navbar/Navbar'
@@ -8,6 +8,8 @@ import BasketProduct from './BasketProduct/BasketProduct';
 import Footer from '../../components/Footer/Footer';
 import EmptyBasket from './EmptyBasket/EmptyBasket';
 import TotalPrice from '../../components/TotalPrice/TotalPrice';
+import MoonLoader from "react-spinners/MoonLoader";
+
 
 
 function Basket() {
@@ -17,7 +19,7 @@ function Basket() {
     const cart = useSelector(state => {
         return state.cart;
     });
-
+    console.log(cart)
     const cartProducts = cart?.cart?.line_items;
 
     useEffect(() => {
@@ -30,21 +32,28 @@ function Basket() {
             <Navbar borderNone='true' />
             <div className="basketDetail">
                 <div className="container">
-                    <h3 className="basketCountAll">
-                        Səbət ({cart?.cart?.total_items} məhsul)
-                    </h3>
-                    {
-                        cartProducts && cartProducts.length === 0 ? <EmptyBasket /> :
-                            <div className="row">
-                                <div className="col-md-8">
-                                    {cartProducts && cartProducts.map(product => (
-                                        <BasketProduct key={product.id} product={product} />
-                                    ))}
-                                </div>
-                                <div className="col-md-4">
-                                   <TotalPrice total={cart?.cart?.subtotal?.formatted}/>
-                                </div>
-                            </div>
+
+                    {cart.loading ? <div className="spinner">
+                        <MoonLoader color={'#2DD06E'} loading={cart.loading} size={100} />
+                    </div> :
+                        <>
+                            <h3 className="basketCountAll">
+                                Səbət ({cart?.cart?.total_items} məhsul)
+                            </h3>
+                            {
+                                cartProducts && cartProducts.length === 0 ? <EmptyBasket /> :
+                                    <div className="row">
+                                        <div className="col-md-8">
+                                            {cartProducts && cartProducts.map(product => (
+                                                <BasketProduct key={product.id} product={product} />
+                                            ))}
+                                        </div>
+                                        <div className="col-md-4">
+                                            <TotalPrice total={cart?.cart?.subtotal?.formatted} />
+                                        </div>
+                                    </div>
+                            }
+                        </>
                     }
                 </div>
             </div>

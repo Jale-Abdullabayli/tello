@@ -7,10 +7,10 @@ import { removeFromCartAsync, updateCartAsync } from '../../../redux/actions/car
 import {Link} from 'react-router-dom';
 
 function BasketProduct({ product }) {
-  console.log(product)
   const dispatch = useDispatch();
   let [basketCount, setbasketCount] = useState(product.quantity);
   const productId = product.id;
+  const [first, setFirst] = useState(true);
   function decrementBasketCount() {
     if(basketCount>1)  setbasketCount(basketCount-1);
     else  dispatch(removeFromCartAsync(product.id));
@@ -25,6 +25,10 @@ function BasketProduct({ product }) {
   }
 
   useEffect(() => {
+    if(first) {
+      setFirst(false);
+      return;
+    };
     dispatch(updateCartAsync({ productId, basketCount }))
   }, [basketCount]);
 

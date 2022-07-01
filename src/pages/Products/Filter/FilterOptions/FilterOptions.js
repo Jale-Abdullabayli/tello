@@ -19,15 +19,13 @@ function FilterOptions({ items, title, setFilterOptions, filterOptions, id, show
         <div className='filterOptions'>
             <div className="title">
                 <h3>{title}</h3>
-               <div className="imgContainer" onClick={toggleFilter}>
-               <img  src={show ? minusIcon : plusIcon} alt={show ? 'minusIcon' : 'plusIcon'} />
-               </div>
-
-               
+                <div className="imgContainer" onClick={toggleFilter}>
+                    <img src={show ? minusIcon : plusIcon} alt={show ? 'minusIcon' : 'plusIcon'} />
+                </div>
             </div>
             {show && <div className="items">
                 {items.map((el, index) => (
-                    <FilterItems key={index} item={el}/>
+                    <FilterItems key={index} title={title} item={el} />
                 ))}
             </div>
 

@@ -6,21 +6,13 @@ function Filter() {
 
     const options = [{
         id:1,
-        title: "Brend",
-        items: ['Apple', 'Samsung'],
+        title: "Ölçü",
+        items: ['64 GB', '128 GB'],
         show: false
     }, {
         id:2,
-
-        title: "Type",
-        items: ['Apple', 'Samsung'],
-        show: false
-    },
-    {
-        id:3,
-
-        title: "Category",
-        items: ['Apple', 'Samsung'],
+        title: "Rəng",
+        items: ['Blue', 'Purple'],
         show: false
     }]
 

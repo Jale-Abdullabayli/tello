@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function OrderInfo({ product }) {
     return (
         <div className="col-md-6">
-            <div className='orderInfo'>
+            <Link to='/orders/order-detail' className='orderInfo'>
                 <div className="row">
                     <div className="col-5">
                         <img className='productImg' src={product.image.url} alt="productImg" />
@@ -30,7 +30,7 @@ function OrderInfo({ product }) {
                         <Link to='' className='detail'>Sifarişin detalları</Link>
                     </div>
                 </div>
-            </div>
+            </Link>
         </div>
 
     )

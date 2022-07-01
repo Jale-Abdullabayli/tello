@@ -1,8 +1,16 @@
-.registrLogin{
+.registrLogin {
+  .main {
+    padding: 100px 0 170px;
+  }
+  .inputControl {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .registrLogin {
     .main {
-        padding: 100px 0 170px;
-      }
-      .inputControl {
-        margin-bottom: 24px;
-      }
+      padding: 72px 0 88px;
+    }
+  }
 }
