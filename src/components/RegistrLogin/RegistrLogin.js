@@ -6,7 +6,7 @@ import Navbar from '../Navbar/Navbar'
 import RegisterImages from '../RegisterImages/RegisterImages';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-function RegistrLogin({isSubmit,setIsLoggedIn,setIsSubmit,children,title,imgText,linkText,permalink,setErrors,errors,userInfo,setUserInfo}) {
+function RegistrLogin({children,title,imgText,linkText,permalink}) {
     return (
         <div className='registrLogin'>
             <Header />
@@ -15,7 +15,7 @@ function RegistrLogin({isSubmit,setIsLoggedIn,setIsSubmit,children,title,imgText
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4">
-                            <RegisterForm setIsLoggedIn={setIsLoggedIn} isSubmit={isSubmit} setIsSubmit={setIsSubmit} setUserInfo={setUserInfo} userInfo={userInfo} title={title} setErrors={setErrors} errors={errors}>
+                            <RegisterForm  title={title} >
                                {children}
                             </RegisterForm>
                         </div>

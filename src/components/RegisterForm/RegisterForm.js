@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import facebook from '../../images/facebook.svg';
 import google from '../../images/google.svg';
 import './RegisterForm.scss';
@@ -7,33 +7,28 @@ import { registerActionAsync, loginActionAsync } from '../../redux/actions/user'
 import Toastify from '../../components/Toastify/Toastify';
 import { toast } from 'react-toastify';
 
-function RegisterForm({ setIsSubmit,setIsLoggedIn, isSubmit, title, children, errors, userInfo }) {
+function RegisterForm({ title, children }) {
     const dispatch = useDispatch();
     const notify = (message) => toast.success(message);
-    const [firstRender, setFirstRender] = useState(true);
 
-
-    useEffect(() => {
-        if (!firstRender && isSubmit) {
-            if (Object.keys(errors).length === 0) {
-                if (title === 'Qeydiyyat') {
-                    notify('Qeydiyyat uğurla tamamlandı');
-                    dispatch(registerActionAsync(userInfo));
-                }
-                else {
-                    notify('Email hesabınızı yoxlayın');
-                    dispatch(loginActionAsync(userInfo));
-                }
-            }
-        }
-        setFirstRender(false);
-
-    }, [errors,isSubmit]);
 
     function submit(e) {
-        console.log(errors)
         e.preventDefault();
-        setIsSubmit(true);
+        let userInfo = {};
+
+        for (let i = 0; i < e.target.length; i++) {
+            userInfo[e.target[0].name] = e.target[0].value;
+        }
+console.log(userInfo)
+
+        if (title === 'Qeydiyyat') {
+            notify('Qeydiyyat uğurla tamamlandı');
+            dispatch(registerActionAsync(userInfo));
+        }
+        else {
+            notify('Email hesabınızı yoxlayın');
+            dispatch(loginActionAsync(userInfo));
+        }
 
     }
 

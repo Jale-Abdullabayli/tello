@@ -19,7 +19,7 @@ import GenerateToken from './pages/GenerateToken/GenerateToken';
 import UserInfo from './pages/Profile/UserInfo/UserInfo';
 import { commerce } from './commerce';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(commerce.customer.isLoggedIn());
@@ -27,18 +27,16 @@ function App() {
   return (
     <Router>
       <Routes>
-        {!isLoggedIn ?
-          <>
-            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
-            <Route path="/register" element={<Register />} />
-          </>
-          :
-          <Route path="/profile" element={<Profile />} >
-            <Route path="order-detail" element={<OrderDetail />} />
-            <Route path="order-list" element={<OrderList />} />
-            <Route path="user-info" element={<UserInfo />} />
-          </Route>
-        }
+
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/profile" element={<Profile />} >
+          <Route path="order-detail" element={<OrderDetail />} />
+          <Route path="order-list" element={<OrderList />} />
+          <Route path="user-info" element={<UserInfo />} />
+        </Route>
+
         <Route path="/" element={<Home />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/payment" element={<Payment />} />

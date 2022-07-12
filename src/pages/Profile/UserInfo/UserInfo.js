@@ -43,9 +43,6 @@ function UserInfo() {
     setUserInfo(updatedUserInfo);
   }
 
-  const [errors, setErrors] = useState({});
-  const [userInfo2, setUserInfo2] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
 
   return (
 
@@ -58,12 +55,12 @@ function UserInfo() {
           <form onSubmit={(e) => updateCustomer(e)} onChange={(e) => changeForm(e)}>
             <div className="row">
               <div className="col-6">
-                <InputControl isSubmit={isSubmit} setIsSubmit={setIsSubmit} userInfo={userInfo2} setErrors={setErrors} setUserInfo={setUserInfo2} errors={errors} title='Ad' value={firstname} name='firstname' type='text' placeholder='Adınızı daxil edin' />
-                <InputControl isSubmit={isSubmit} setIsSubmit={setIsSubmit} userInfo={userInfo2} setErrors={setErrors} setUserInfo={setUserInfo2} errors={errors} title='E-mail' value={email} name='email' type='email' placeholder='nümunə@gmail.com' />
+                <InputControl  title='Ad' value={firstname} name='firstname' type='text' placeholder='Adınızı daxil edin' />
+                <InputControl  title='E-mail' value={email} name='email' type='email' placeholder='nümunə@gmail.com' />
               </div>
               <div className="col-6">
-                <InputControl isSubmit={isSubmit} setIsSubmit={setIsSubmit} userInfo={userInfo2} setErrors={setErrors} setUserInfo={setUserInfo2} errors={errors} title='Soyad' value={lastname} name='lastname' type='text' placeholder='Soyadınızı daxil edin' />
-                <InputControl isSubmit={isSubmit} setIsSubmit={setIsSubmit} userInfo={userInfo2} setErrors={setErrors} setUserInfo={setUserInfo2} errors={errors} title='Mobil nömrə' value={phone} name='phone' type='tel' placeholder='077 - 000 - 00 - 00' />
+                <InputControl  title='Soyad' value={lastname} name='lastname' type='text' placeholder='Soyadınızı daxil edin' />
+                <InputControl  title='Mobil nömrə' value={phone} name='phone' type='tel' placeholder='077 - 000 - 00 - 00' />
               </div>
               <button type='submit' className='editBtn'><img src={editIcon} alt="editIcon" /> <span>Məlumatları yenilə</span></button>
             </div>
