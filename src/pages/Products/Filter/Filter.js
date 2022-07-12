@@ -7,7 +7,7 @@ function Filter() {
     const options = [{
         id:1,
         title: "Ölçü",
-        items: ['64 GB', '128 GB'],
+        items: ['64 GB', '128 GB', '1 TB','256 GB'],
         show: false
     }, {
         id:2,

@@ -12,10 +12,12 @@ import star from '../../images/star.png'
 import aznSymbol from '../../images/aznSymbol.svg';
 import basket from '../../images/basket.png';
 import Slider from "react-slick";
-
+import { toast } from 'react-toastify';
+ 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MoonLoader from "react-spinners/MoonLoader";
+import Toastify from '../../components/Toastify/Toastify';
 
 
 
@@ -41,10 +43,11 @@ function ProductDetail() {
     useEffect(() => {
         dispatch(getProductByIdAsync(productId));
         window.scrollTo(0, 0);
-    }, []);
+    }, [productId]);
+    const notify = () => toast.success('Məhsul səbətə əlavə edildi');
 
     function addToCart(productId) {
-        alert('product added to cart');
+        notify();
         dispatch(addToCartAsync({ productId, basketCount, sizeGroupId, sizeVariantId, colorGroupId, colorVariantId }));
     }
 
@@ -124,6 +127,7 @@ function ProductDetail() {
                                 <img src={basket} alt='addBasket' />
                                 Səbətə at
                             </button>
+                            <Toastify/>
                         </div>
                     </div>
                 }

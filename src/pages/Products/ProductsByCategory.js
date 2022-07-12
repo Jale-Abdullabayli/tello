@@ -22,12 +22,10 @@ function ProductsByCategory() {
     const filter = useSelector(state => state.filter);
     const navigate = useNavigate();
 
-    console.log(productsByCategory)
     let { categoryName, page } = useParams();
     const [countOfProducts, setCountOfProducts] = useState(customFilter().length);
 
     const [category, setCategory] = useState('');
-
 
     async function getCategory() {
         commerce.categories.retrieve(categoryName, { type: 'slug' })
@@ -45,31 +43,34 @@ function ProductsByCategory() {
 
     function customFilter() {
         return productsByCategory.products.filter(product => {
-            let filter = false;
+            let isOkay = false;
+            if (filter.colors.length === 0 && filter.sizes.length === 0) {
+                isOkay = true;
+            }
             product.variant_groups[0].options.forEach(option => {
-                filter.color.map(color => {
-                    if (option.name === color) {
-                        filter = true;
-                    }
-                })
+                if (filter.colors.includes(option.name.toLowerCase())) {
+                    isOkay = true;
+                }
             })
 
             product.variant_groups[1].options.forEach(option => {
-                filter.size.map(color => {
-                    if (option.name === color) {
-                        filter = true;
-                    }
-                })
+                if (filter.sizes.includes(option.name.toLowerCase())) {
+                    isOkay = true;
+                }
             })
-            if (filter) return true;
+            if (isOkay) return true;
         })
     }
 
-    console.log(customFilter())
     useEffect(() => {
         getCategory();
         window.scrollTo(0, 0);
     }, [categoryName, page]);
+
+    useEffect(() => {
+        setCountOfProducts(customFilter().length);
+        navigate(`/products/${categoryName}/1`);
+    }, [filter]);
     return (
         <div className='productsByCategory'>
             <Header />
@@ -87,7 +88,7 @@ function ProductsByCategory() {
                             </div> :
                                 <>
                                     <div className="rightSideTitle">
-                                        <h3>{category.products} məhsul tapıldı</h3>
+                                        <h3>{countOfProducts} məhsul tapıldı</h3>
                                     </div>
                                     <Products col='col-md-4' all='true' products={customFilter().slice((Number(page) - 1) * 6, 6 * Number(page))} />
                                     {countOfProducts > 6 && <Pagination changePage={changePage} amount={Math.ceil(countOfProducts / 6)} />}

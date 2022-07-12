@@ -1,0 +1,22 @@
+.pageNotFound{
+    .pageNotFoundMain{
+        display: flex;
+       align-items: center;
+        flex-direction: column;
+        img{
+            width: 30%;
+        }
+        a{
+            text-decoration: none;
+            padding: 15px 40px;
+            border: 1px solid #2dd06e;
+            border-radius: 8px;
+            color: #2dd06e;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            background:#FFFFFF;
+            margin-bottom: 40px;
+        }
+    }
+}

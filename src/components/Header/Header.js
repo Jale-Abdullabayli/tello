@@ -12,20 +12,29 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../../redux/reducers/menuShowReducer';
 import { Link } from 'react-router-dom';
 import { getCartAsync } from '../../redux/actions/cart';
+import { commerce } from '../../commerce';
+import { getProductsAsync } from '../../redux/actions/product';
+
 
 function Header() {
 
     let getSearchs = localStorage.getItem('searchs');
     const [showSearchs, setShowSearchs] = useState(false);
+    const [showResults, setShowResults] = useState(false);
     const [searchs, setSearchs] = useState(getSearchs ? JSON.parse(getSearchs) : []);
     const dispatch = useDispatch();
     const menuShow = useSelector(state => state.menuShow);
     const cart = useSelector(state => state.cart);
+    const products = useSelector(state => state.products);
     const basketCount = cart?.cart?.total_items;
     const searchRef = useRef();
     const wrapperRef = useRef(null);
+    const resultRef = useRef(null);
+    const [firstRender, setFirstRender] = useState(true);
     const [lastSearchs, setLastSearchs] = useState([]);
     const [mostSearchs, setMostSearchs] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(commerce.customer.isLoggedIn());
+    const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
         localStorage.setItem("searchs", JSON.stringify(searchs));
@@ -61,6 +70,7 @@ function Header() {
         let lastSearchsArr = [];
         let mostSearchsArr = [];
         dispatch(getCartAsync());
+        dispatch(getProductsAsync());
         window.scrollTo(0, 0);
         for (let i = 0; i < searchs.length; i++) {
             let single = true;
@@ -82,8 +92,11 @@ function Header() {
         }
     }, []);
 
+
+
     function search(e) {
         e.preventDefault();
+
         if (searchRef.current.value === '') {
             return;
         }
@@ -91,14 +104,46 @@ function Header() {
     }
 
     function clearSearchs() {
-        searchRef.current.value='';
+        searchRef.current.value = '';
         setSearchs([]);
         setLastSearchs([]);
         setMostSearchs([]);
     }
 
+    useEffect(() => {
+        if (firstRender) {
+            setFirstRender(false);
+            return;
+        }
+        if (inputValue === '') {
 
+            setShowResults(false);
 
+            setShowSearchs(true);
+        }
+        else {
+            setShowResults(true);
+            setShowSearchs(false);
+        }
+    }, [inputValue]);
+
+    function inputChange(e) {
+        setInputValue(e.target.value);
+    }
+
+    function filterProducts() {
+        if (inputValue !== '') {
+            return products.products.filter(el => {
+                return el.name.toLowerCase().includes(inputValue.toLowerCase());
+            })
+        }
+    }
+
+    function inputFocus() {
+        if (inputValue === '') {
+            setShowSearchs(true);
+        }
+    }
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -108,6 +153,13 @@ function Header() {
             }
             else if (!wrapperRef.current?.contains(event.target)) {
                 setShowSearchs(false);
+            }
+
+            if (searchRef.current?.contains(event.target)) {
+                setShowResults(true);
+            }
+            else if (!resultRef.current?.contains(event.target)) {
+                setShowResults(false);
             }
         }
         document.addEventListener("mousedown", handleClickOutside);
@@ -129,39 +181,53 @@ function Header() {
             <div className="search">
                 <form onSubmit={(e) => search(e)}>
                     <img src={searchIcon} alt='searchIcon' />
-                    <input onFocus={() => setShowSearchs(true)} ref={searchRef} placeholder='Axtarış...' />
+                    <input onChange={e => inputChange(e)} value={inputValue} onFocus={inputFocus} ref={searchRef} placeholder='Axtarış...' />
                 </form>
 
-                <div ref={wrapperRef} className={`${showSearchs && searchs.length!==0 ? 'show' : ''} lastSearchs`}>
-                    <div className={`${lastSearchs.length===0 ? 'd-none' : ''} lastSearch`}>
+                <div ref={wrapperRef} className={`${showSearchs && searchs.length !== 0 ? 'show' : ''} lastSearchs`}>
+                    <div className={`${lastSearchs.length === 0 ? 'd-none' : ''} lastSearch`}>
                         <div className="title">
                             <h3>Son axtarışlar</h3>
                             <span onClick={clearSearchs}>Təmizlə</span>
                         </div>
                         <div className="searchList">
                             {lastSearchs.map((el, index) => (
-                                <span key={index}>{el}</span>
+                                <span onClick={() => setInputValue(el)} key={index}>{el}</span>
                             ))}
                         </div>
                     </div>
-                    <div className={`${mostSearchs.length===0 ? 'd-none' : ''} mostSearchs`}>
+                    <div className={`${mostSearchs.length === 0 ? 'd-none' : ''} mostSearchs`}>
                         <div className="title">
                             <h3>Çox axtarılanlar</h3>
                         </div>
                         <div className="searchList">
                             {mostSearchs.map((el, index) => (
-                                <span key={index}>{el}</span>
+                                <span onClick={() => setInputValue(el)} key={index}>{el}</span>
                             ))}
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="icons">
-                <Link to='/login'>
-                    <img src={userIcon} alt='userIcon' />
 
-                </Link>
-                <Link to='/orders/order-list'>
+                <div ref={resultRef} className={`${showResults && searchs.length !== 0 ? 'show' : ''} searchResults`}>
+                    {
+                        filterProducts()?.map((product) => (
+                            <Link to={`/product-detail/${product.id}`} className="searchResult">
+                                <img src={product.image.url} alt="productImg" />
+                                <h3 className='name'>{`${product.name},`} {product.variant_groups && product.variant_groups[1] && `${product.variant_groups[1].options[0].name},`} {product.variant_groups && product.variant_groups[0] && ` ${product.variant_groups[0].options[0].name}`}</h3>
+                            </Link>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div className="icons">
+                {!isLoggedIn ? <Link to='/login'>
+                    <img src={userIcon} alt='userIcon' />
+                </Link> : <Link to='/profile/order-list'>
+                    <img src={userIcon} alt='userIcon' />
+                </Link>}
+
+                <Link to='/payment'>
                     <img src={favoriteIcon} alt='favoriteIcon' />
                 </Link>
                 <Link to='/basket'>

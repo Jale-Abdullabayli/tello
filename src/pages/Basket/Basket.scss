@@ -1,7 +1,7 @@
 .basket {
   .basketDetail {
     background: #e5e5e5;
-    padding: 50px 0 170px;
+    padding: 40px 0 170px;
     .basketCountAll {
       font-weight: 500;
       font-size: 20px;
@@ -12,6 +12,16 @@
     .basketProduct {
       margin-bottom: 32px;
     }
-  
+  }
+}
+
+@media (max-width: 768px) {
+  .basket {
+    .basketDetail {
+      padding: 40px 0 88px;
+      .basketCountAll {
+        margin-bottom: 24px;
+      }
+    }
   }
 }

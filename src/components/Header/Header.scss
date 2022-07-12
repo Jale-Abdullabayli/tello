@@ -22,16 +22,52 @@
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 12px 16px;
-   
+
     width: 50%;
     position: relative;
-    form{
+    form {
       display: flex;
       align-items: center;
     }
-    .mostSearchs{
-      .title{
+    .mostSearchs {
+      .title {
         margin-top: 15px;
+      }
+    }
+
+    .searchResults {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      z-index: 2;
+      border: 1px solid #f5f5f5;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      max-height: 300px;
+
+      overflow-y: scroll;
+      opacity: 0;
+      pointer-events: none;
+      &.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .searchResult {
+        text-decoration: none;
+        padding: 10px 25px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #f5f5f5;
+        img {
+          width: 50px;
+        }
+        h3 {
+          font-size: 14px;
+          color: #4f4f4f;
+          font-weight: 400;
+        }
       }
     }
     .lastSearchs {
@@ -75,6 +111,7 @@
         display: flex;
         align-items: center;
         span {
+          cursor: pointer;
           padding: 2px 6px;
           background: #edf1f7;
           border-radius: 4px;

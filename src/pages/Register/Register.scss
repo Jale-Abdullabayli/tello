@@ -2,12 +2,20 @@
   .termsAndConditions {
     display: flex;
     align-items: center;
-    .checkBox {
+  
+    .checkbox {
       border: 1px solid #e0e0e0;
       border-radius: 8px;
       width: 24px;
       height: 24px;
       margin-right: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.checked{
+          background:#2DD06E;
+      }
     }
     .agree {
       display: flex;

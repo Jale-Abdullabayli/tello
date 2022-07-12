@@ -1,13 +1,13 @@
 import React from 'react';
 import './OrderInfo.scss';
-import aznSymbol from '../../../images/aznSymbol.svg';
+import aznSymbol from '../../../../images/aznSymbol.svg';
 import { Link } from 'react-router-dom';
 
 
 function OrderInfo({ product }) {
     return (
         <div className="col-md-6">
-            <Link to='/orders/order-detail' className='orderInfo'>
+            <div className='orderInfo'>
                 <div className="row">
                     <div className="col-5">
                         <img className='productImg' src={product.image.url} alt="productImg" />
@@ -27,10 +27,10 @@ function OrderInfo({ product }) {
                                 <div className="price">{product.price.formatted} <img src={aznSymbol} alt="azn" /></div>
                             </div>
                         </div>
-                        <Link to='' className='detail'>Sifarişin detalları</Link>
+                        <Link to='/profile/order-detail' className='detail'>Sifarişin detalları</Link>
                     </div>
                 </div>
-            </Link>
+            </div>
         </div>
 
     )

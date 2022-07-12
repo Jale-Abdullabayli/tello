@@ -7,6 +7,8 @@ import menuShowReducer from './reducers/menuShowReducer';
 import productByIdReducer from './reducers/productByIdReducer';
 import fetchCartReducer from './reducers/fetchCartReducer';
 import filterReducer from './reducers/filterReducer';
+import userReducer from './reducers/userReducer';
+import fetchProductsReducer from './reducers/fetchProductsReducer';
 
 export const store = configureStore({
     reducer: {
@@ -17,6 +19,8 @@ export const store = configureStore({
         menuShow: menuShowReducer,
         productById:productByIdReducer,
         cart: fetchCartReducer,
-        filter:filterReducer
+        filter:filterReducer,
+        user: userReducer,
+        products: fetchProductsReducer
     },
 })

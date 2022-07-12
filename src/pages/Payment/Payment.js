@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import InputControl from '../../components/InputControl/InputControl';
 import TotalPrice from '../../components/TotalPrice/TotalPrice';
 import './Payment.scss';
@@ -8,7 +8,9 @@ import card from '../../images/card.svg';
 import cash from '../../images/cash.svg';
 
 function Payment() {
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     let paymentInfo = {};
     return (
         <div className='payment'>

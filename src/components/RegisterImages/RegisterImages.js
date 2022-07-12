@@ -4,7 +4,7 @@ import login from '../../images/login.svg';
 import loginGrid from '../../images/loginGrid.svg';
 import { Link } from 'react-router-dom';
 
-function RegisterImages({title,link}) {
+function RegisterImages({title,link,permalink}) {
     return (
         <div className='registerImages'>
             <div className="imgContainer">
@@ -13,7 +13,7 @@ function RegisterImages({title,link}) {
             </div>
             <div className="register">
                 <span>{title}</span>
-                <Link to='/register'>{link}</Link>
+                <Link to={permalink}>{link}</Link>
             </div>
         </div>
     )

@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState = {
-    color: [],
-    size: []
+    colors: [],
+    sizes: []
 };
 
 export const filterSlice = createSlice({
@@ -11,13 +11,26 @@ export const filterSlice = createSlice({
     initialState,
     reducers: {
         addToColorFilter: (state, { payload }) => {
-            state[0].push(payload);
+            state.colors.push(payload);
         },
         addToSizeFilter: (state, { payload }) => {
-            state[1].push(payload);
+            state.sizes.push(payload);
+        },
+        removeFromColorFilter: (state, { payload }) => {
+            let index = state.colors.indexOf(payload);
+            if (index > -1) {
+                state.colors.splice(index, 1)
+            }
+        }
+        ,
+        removeFromSizeFilter: (state, { payload }) => {
+            let index = state.sizes.indexOf(payload);
+            if (index > -1) {
+                state.sizes.splice(index, 1)
+            }
         }
     }
 })
 
-export const { addToColorFilter, addToSizeFilter} = filterSlice.actions;
+export const { addToColorFilter, addToSizeFilter,removeFromSizeFilter,removeFromColorFilter } = filterSlice.actions;
 export default filterSlice.reducer
