@@ -18,7 +18,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MoonLoader from "react-spinners/MoonLoader";
 import Toastify from '../../components/Toastify/Toastify';
-
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 
 
 
@@ -86,6 +86,8 @@ function ProductDetail() {
                 </div> :
 
                     <div className="row productDetailRow">
+                    <BreadCrumbs  productName={product.name} category={product?.categories?.[0]}/>
+
                         <div className="col-md-6 leftCol">
                             <div className="slider">
                                 <Slider {...settings}>
@@ -101,7 +103,7 @@ function ProductDetail() {
                             </div>
                         </div>
                         <div className="col-md-6 rightCol">
-                            <h3 className='name'>{product.name}{product.variant_groups && product.variant_groups[1] && `, ${product.variant_groups[1].options[0].name}`}{product.variant_groups && product.variant_groups[0] && `, ${product.variant_groups[0].options[0].name}`}</h3>
+                            <h3 className='name'>{product.name}{product.variant_groups && product.variant_groups[1] && `, ${product.variant_groups[1].options[activeSizeIndex].name}`}{product.variant_groups && product.variant_groups[0] && `, ${product.variant_groups[0].options[activeColorIndex].name}`}</h3>
                             <div className="rating">
                                 <img src={starFull} alt="star" />
                                 <img src={starFull} alt="star" />

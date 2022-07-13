@@ -5,12 +5,13 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #4f4f4f;
+    color: #4f4f4f !important;
     text-decoration: none;
     margin-right: 10px;
     text-transform: capitalize;
     &.active{
-        color: #828282;
+        color: #828282 !important;
+        cursor: auto;
     }
   }
   img{

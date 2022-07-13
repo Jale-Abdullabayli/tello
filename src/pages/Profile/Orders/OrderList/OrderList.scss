@@ -10,3 +10,10 @@
     align-items:center;
   }
 }
+
+@media (max-width: 768px) {
+  .orderList {
+    h4 {
+      margin-top: 20px;
+    }}
+}

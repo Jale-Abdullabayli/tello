@@ -181,3 +181,33 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .orderDetail {
+    .back{
+      margin-top: 20px;
+    }
+    .orderDetailMain {
+      .productDetail{
+        flex-direction: column;
+        .productInfo{
+          margin-left: 0;
+        }
+      }
+      .delivery{
+        .infoCol{
+          margin-bottom: 15px;
+        }
+        .row{
+          position: relative;
+          .editCol{
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

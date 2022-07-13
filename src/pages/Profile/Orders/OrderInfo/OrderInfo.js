@@ -9,10 +9,10 @@ function OrderInfo({ product }) {
         <div className="col-md-6">
             <div className='orderInfo'>
                 <div className="row">
-                    <div className="col-5">
+                    <div className="col-md-5">
                         <img className='productImg' src={product.image.url} alt="productImg" />
                     </div>
-                    <div className="col-7">
+                    <div className="col-md-7">
                         <div className="properties">
                             <div className="property">
                                 <span>Sifariş tarixi:</span>

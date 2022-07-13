@@ -2,7 +2,7 @@ import Footer from '../../components/Footer/Footer';
 import React, { useEffect, useState } from 'react'
 import './ProductsByCategory.scss';
 import { useParams } from 'react-router-dom';
-import BreadCrumbs from './BreadCrumbs/BreadCrumbs';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import { commerce } from '../../commerce';
 import Filter from './Filter/Filter';
 import { getProductsByCategoryAsync } from '../../redux/actions/product';
@@ -47,13 +47,13 @@ function ProductsByCategory() {
             if (filter.colors.length === 0 && filter.sizes.length === 0) {
                 isOkay = true;
             }
-            product.variant_groups[0].options.forEach(option => {
+            product.variant_groups[0]?.options.forEach(option => {
                 if (filter.colors.includes(option.name.toLowerCase())) {
                     isOkay = true;
                 }
             })
 
-            product.variant_groups[1].options.forEach(option => {
+            product.variant_groups[1]?.options.forEach(option => {
                 if (filter.sizes.includes(option.name.toLowerCase())) {
                     isOkay = true;
                 }
@@ -63,9 +63,12 @@ function ProductsByCategory() {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [page]);
+    useEffect(() => {
         getCategory();
         window.scrollTo(0, 0);
-    }, [categoryName, page]);
+    }, [categoryName]);
 
     useEffect(() => {
         setCountOfProducts(customFilter().length);

@@ -6,6 +6,8 @@ import PaymentHeader from './PaymentHeader/PaymentHeader';
 import PaymentOptions from './PaymentOptions/PaymentOptions';
 import card from '../../images/card.svg';
 import cash from '../../images/cash.svg';
+import Footer from '../../components/Footer/Footer';
+
 
 function Payment() {
     useEffect(() => {
@@ -71,6 +73,7 @@ function Payment() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

@@ -105,3 +105,18 @@
     }
   }
 }
+
+
+@media (max-width: 768px) {
+  .basketProduct{
+    position: relative;
+    .removeFromCart{
+      position: absolute;
+      right: 15px;
+      top: 12px;
+    }
+    .right{
+      margin-top: 10px;
+    }
+  }
+}

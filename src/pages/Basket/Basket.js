@@ -3,7 +3,7 @@ import './Basket.scss';
 import Header from '../../components/Header/Header'
 import Navbar from '../../components/Navbar/Navbar'
 import { useDispatch, useSelector } from 'react-redux';
-import { getCartAsync } from '../../redux/actions/cart';
+import { getCartAsync,clearCartAsync } from '../../redux/actions/cart';
 import BasketProduct from './BasketProduct/BasketProduct';
 import Footer from '../../components/Footer/Footer';
 import EmptyBasket from './EmptyBasket/EmptyBasket';
@@ -19,13 +19,18 @@ function Basket() {
     const cart = useSelector(state => {
         return state.cart;
     });
-    console.log(cart)
     const cartProducts = cart?.cart?.line_items;
-
+console.log(cartProducts)
     useEffect(() => {
         dispatch(getCartAsync());
         window.scrollTo(0, 0);
     }, []);
+
+    function clearBasket() {
+        dispatch(clearCartAsync());
+    }
+
+
     return (
         <div className='basket'>
             <Header />
@@ -47,12 +52,17 @@ function Basket() {
                                             {cartProducts && cartProducts.map(product => (
                                                 <BasketProduct key={product.id} product={product} />
                                             ))}
+
+                                            <div className="clearBasket">
+                                                <button onClick={clearBasket}>Səbəti Təmizlə</button>
+                                            </div>
                                         </div>
                                         <div className="col-md-4">
                                             <TotalPrice total={cart?.cart?.subtotal?.formatted} />
                                         </div>
                                     </div>
                             }
+
                         </>
                     }
                 </div>

@@ -48,3 +48,11 @@
     margin-bottom: 32px;
   }
 }
+
+@media (max-width: 768px) {
+  .profile {
+    .main{
+      padding-bottom:88px ;
+    }
+  }
+}

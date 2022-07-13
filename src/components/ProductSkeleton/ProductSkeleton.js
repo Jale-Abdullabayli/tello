@@ -1,5 +1,6 @@
 import React from 'react'
-import ContentLoader from 'react-content-loader'
+import ContentLoader from 'react-content-loader';
+import './ProductSkeleton.scss';
 
 const MyLoader = () => (
     <>
@@ -15,7 +16,7 @@ const MyLoader = () => (
                             backgroundColor="#f3f3f3"
                             foregroundColor="#ecebeb"
                         >
-                            <rect x="0" y="0" rx="3" ry="3" width="80%" height="200" />
+                            <rect x="0" y="0" rx="3" ry="3" width="80%" height="200" className='skeletonRect'/>
                             <rect x="0" y="220" rx="3" ry="3" width="80%" height="20" />
                             <rect x="0" y="260" rx="3" ry="3" width="60%" height="20" />
                             <rect x="0" y="300" rx="3" ry="3" width="30%" height="20" />

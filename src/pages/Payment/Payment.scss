@@ -48,3 +48,18 @@
     margin-bottom: 24px;
   }
 }
+
+@media (max-width: 768px) {
+  .payment {
+    .main{
+      .paymentType{
+        flex-direction: column;
+        >div{
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+

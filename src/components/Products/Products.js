@@ -12,7 +12,7 @@ function Products({ title, products, col,all,loading,permalink }) {
             <div className={`${!all && 'container'}`}>
                 {!all && <div className="title">
                     <h5>{title}</h5>
-                    <Link to={`/products/${permalink}/1`}><span>Hamısına bax</span> <img src={arrow} alt="all" /></Link>
+                    <Link to={`/products/${permalink ? permalink : 'telefonlar'}/1`}><span>Hamısına bax</span> <img src={arrow} alt="all" /></Link>
                 </div>}
                 
                 {
@@ -27,11 +27,12 @@ function Products({ title, products, col,all,loading,permalink }) {
                     })}
                 </div>
                 }
-                
+            {!all &&    
                 <div className="mobileAll">
                     <Link to=''><span>Hamısına bax</span> <img src={arrow} alt="all" /></Link>
 
                 </div>
+}
             </div>
         </div>
     )

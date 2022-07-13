@@ -20,3 +20,17 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+.pageNotFound{
+    .pageNotFoundMain{
+        img{
+            width: 70%;
+        }
+        a{
+            padding: 10px 15px;
+        }
+    }
+   
+}
+}

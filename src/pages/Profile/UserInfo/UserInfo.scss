@@ -34,3 +34,18 @@ color: #FFFFFF;
     }
   }
 }
+
+
+@media (max-width: 768px) {
+  .userInfo {
+    .title{
+      margin-top: 20px;
+    }
+    form {
+      .editBtn{
+        padding: 14px 0;
+        width: 100%;
+      }
+    }
+  }
+}

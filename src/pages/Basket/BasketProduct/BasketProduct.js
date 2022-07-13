@@ -11,6 +11,11 @@ function BasketProduct({ product }) {
   let [basketCount, setbasketCount] = useState(product.quantity);
   const productId = product.id;
   const [first, setFirst] = useState(true);
+  let colorName=product?.selected_options.find(el=>{
+    return el.group_name==='color';
+  });
+
+  console.log(colorName)
   function decrementBasketCount() {
     if(basketCount>1)  setbasketCount(basketCount-1);
     else  dispatch(removeFromCartAsync(product.id));
@@ -43,7 +48,7 @@ function BasketProduct({ product }) {
             <div className="productDetail">
               <Link to={`/product-detail/${product.product_id}`} className="name">{product.name} {product.variant_groups && product.variant_groups[1] && `,${product.variant_groups[1].options[0].name}`} {product.variant_groups && product.variant_groups[0] && `,${product.variant_groups[0].options[0].name}`}</Link>
               <div className="productDetailBottom">
-                <div className="color"><span>Rəng:</span> <h3>{product?.selected_options?.[1]?.option_name}</h3></div>
+                <div className="color"><span>Rəng:</span> <h3>{colorName?.option_name}</h3></div>
                 <span className='price'><span>{product.price.formatted}</span> <img src={aznSymbol} alt="azn" /> </span>
 
               </div>

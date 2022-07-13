@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getCartAsync } from '../actions/cart';
-import { addToCartAsync,updateCartAsync,removeFromCartAsync } from '../actions/cart';
+import { addToCartAsync, clearCartAsync, updateCartAsync, removeFromCartAsync } from '../actions/cart';
 
 
 
@@ -57,6 +57,20 @@ export const cartSlice = createSlice({
         }
         ,
         [updateCartAsync.fulfilled]: (state, { payload }) => {
+            state.cart = payload;
+            state.loading = false;
+        }
+        ,
+        [clearCartAsync.pending]: (state, { payload }) => {
+            state.loading = true;
+        }
+        ,
+        [clearCartAsync.rejected]: (state, { payload }) => {
+            state.loading = false;
+            state.error = payload;
+        }
+        ,
+        [clearCartAsync.fulfilled]: (state, { payload }) => {
             state.cart = payload;
             state.loading = false;
         }

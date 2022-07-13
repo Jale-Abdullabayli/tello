@@ -16,11 +16,11 @@ export const getCartAsync = createAsyncThunk(
 
 export const addToCartAsync = createAsyncThunk(
     'cart/addToCartAsync',
-    async ({ productId, basketCount, sizeGroupId, sizeVariantId,colorGroupId,colorVariantId }) => {
+    async ({ productId, basketCount, sizeGroupId, sizeVariantId, colorGroupId, colorVariantId }) => {
         try {
-           const variantObj={};
-           variantObj[sizeGroupId]=sizeVariantId;
-           variantObj[colorGroupId]=colorVariantId;
+            const variantObj = {};
+            variantObj[sizeGroupId] = sizeVariantId;
+            variantObj[colorGroupId] = colorVariantId;
             const response = await commerce.cart.add(productId, basketCount, variantObj);
             return response.cart;
         }
@@ -49,6 +49,19 @@ export const removeFromCartAsync = createAsyncThunk(
     async (productId) => {
         try {
             const response = await commerce.cart.remove(productId);
+            return response.cart;
+        }
+        catch (err) {
+            return err.message
+        }
+    }
+)
+
+export const clearCartAsync = createAsyncThunk(
+    'cart/clearCartAsync',
+    async () => {
+        try {
+            const response = await commerce.cart.empty();
             return response.cart;
         }
         catch (err) {

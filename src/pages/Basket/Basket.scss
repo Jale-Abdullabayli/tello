@@ -13,6 +13,21 @@
       margin-bottom: 32px;
     }
   }
+  .clearBasket{
+    text-align: right;
+    button{
+      text-align: center;
+    padding: 15px 50px;
+    background: #2dd06e;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -23,5 +38,8 @@
         margin-bottom: 24px;
       }
     }
+  }
+  .clearBasket{
+    margin-bottom: 20px;
   }
 }

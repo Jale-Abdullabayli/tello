@@ -54,11 +54,11 @@ function UserInfo() {
           <div className="title">Şəxsi məlumatlar</div>
           <form onSubmit={(e) => updateCustomer(e)} onChange={(e) => changeForm(e)}>
             <div className="row">
-              <div className="col-6">
+              <div className="col-md-6">
                 <InputControl  title='Ad' value={firstname} name='firstname' type='text' placeholder='Adınızı daxil edin' />
                 <InputControl  title='E-mail' value={email} name='email' type='email' placeholder='nümunə@gmail.com' />
               </div>
-              <div className="col-6">
+              <div className="col-md-6">
                 <InputControl  title='Soyad' value={lastname} name='lastname' type='text' placeholder='Soyadınızı daxil edin' />
                 <InputControl  title='Mobil nömrə' value={phone} name='phone' type='tel' placeholder='077 - 000 - 00 - 00' />
               </div>

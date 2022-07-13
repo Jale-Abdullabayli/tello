@@ -3,7 +3,7 @@ import { getProductsByCategoryAsync } from '../actions/product';
 
 
 const initialState = {
-    loading: false,
+    loading: true,
     error: null,
     products: []
 }

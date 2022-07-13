@@ -26,7 +26,7 @@
 
 @media (max-width: 768px) {
   .navBar {
-    
+    z-index: 2;
     border-top: 1px solid #303030;
     position: absolute;
     left: -100%;
@@ -35,7 +35,6 @@
     top: 80px;
     height: calc(100vh - 80px);
     transition: .3s;
-    z-index: 1;
     .categoryList{
       justify-content: flex-start;
     align-items: flex-start;

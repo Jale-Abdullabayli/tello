@@ -82,7 +82,7 @@ export const getProductsByCategoryAsync = createAsyncThunk(
 
 
 export const getProductsAsync = createAsyncThunk(
-    'products/getProductsByCategoryAsync',
+    'products/getProductsAsync',
     async () => {
         try {
             const response = await commerce.products.list();

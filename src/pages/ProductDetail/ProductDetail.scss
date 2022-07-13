@@ -3,7 +3,6 @@
     margin-top: 60px;
   }
   .leftCol {
-    
     padding: 0 50px;
     .slider {
       padding: 0 25px 150px;
@@ -76,11 +75,10 @@
       line-height: 20px;
       color: #4f4f4f;
     }
-    .option{
-      border:2px solid transparent;
-      &.active{
-      border:2px solid black !important;
-
+    .option {
+      border: 2px solid transparent;
+      &.active {
+        border: 2px solid black !important;
       }
     }
     .color {
@@ -162,3 +160,16 @@
   }
 }
 
+@media (max-width: 768px) {
+  .productDetail {
+    .rightCol {
+      .count {
+        justify-content: center;
+      }
+      .addBasketBtn {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}

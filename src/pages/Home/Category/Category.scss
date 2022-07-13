@@ -6,6 +6,9 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  .column{
+    z-index: 1;
+  }
   .color {
     position: absolute;
     content: "";
