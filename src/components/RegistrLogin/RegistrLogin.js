@@ -6,7 +6,7 @@ import Navbar from '../Navbar/Navbar'
 import RegisterImages from '../RegisterImages/RegisterImages';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-function RegistrLogin({children,title,imgText,linkText,permalink}) {
+function RegistrLogin({children,title,imgText,linkText,permalink,checked}) {
     return (
         <div className='registrLogin'>
             <Header />
@@ -15,7 +15,7 @@ function RegistrLogin({children,title,imgText,linkText,permalink}) {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4">
-                            <RegisterForm  title={title} >
+                            <RegisterForm checked={checked} title={title} >
                                {children}
                             </RegisterForm>
                         </div>

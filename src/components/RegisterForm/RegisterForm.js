@@ -7,7 +7,7 @@ import { registerActionAsync, loginActionAsync } from '../../redux/actions/user'
 import Toastify from '../../components/Toastify/Toastify';
 import { toast } from 'react-toastify';
 
-function RegisterForm({ title, children }) {
+function RegisterForm({ title, children, checked }) {
     const dispatch = useDispatch();
     const notify = (message) => toast.success(message);
 
@@ -19,11 +19,17 @@ function RegisterForm({ title, children }) {
         for (let i = 0; i < e.target.length; i++) {
             userInfo[e.target[0].name] = e.target[0].value;
         }
-console.log(userInfo)
+        console.log(userInfo)
 
         if (title === 'Qeydiyyat') {
-            notify('Qeydiyyat uğurla tamamlandı');
-            dispatch(registerActionAsync(userInfo));
+            if (checked) {
+                notify('Qeydiyyat uğurla tamamlandı');
+                dispatch(registerActionAsync(userInfo));
+            }
+            else{
+                notify('İstifadəçi şərtləri ilə razı olduğunuzu qeyd edin');
+            }
+
         }
         else {
             notify('Email hesabınızı yoxlayın');
